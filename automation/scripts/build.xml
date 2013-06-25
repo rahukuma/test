@@ -1,0 +1,7 @@
+<project name="test" default="test">
+  <target name="test">
+     <echo message="This is a test message" />
+     <mkdir dir="${workspace.dir}/results" />
+     <touch file="${workspace.dir}/results/testlog.log" />
+  </target>
+</project>
