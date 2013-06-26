@@ -1,4 +1,5 @@
 <project name="test" default="test">
+  <delete dir="${workspace.dir}/results" />
   <target name="test">
      <echo message="This is a test message" />
      <mkdir dir="${workspace.dir}/results" />
