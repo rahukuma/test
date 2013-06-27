@@ -1,8 +1,24 @@
-<project name="test" default="test">
+<project name="test" default="test" basedir=".">
+
+  <taskdef name="testng" classname="org.testng.TestNGAntTask">
+    <classpath>
+      <pathelement location="/usr/share/ant/lib/testng/testng.jar"/>
+    </classpath>
+  </taskdef>
+  <path id="classes">
+     <pathelement location="testsuites"/>
+  </path>
+
   <delete dir="${workspace.dir}/results" />
   <target name="test">
      <echo message="This is a test message" />
      <mkdir dir="${workspace.dir}/results" />
      <touch file="${workspace.dir}/results/testlog.log" />
+  </target>
+
+  <target name="runTestng">
+    <testng outputdir="${workspace.dir}/results" classpathref="classes"> 
+      <xmlfileset dir="." includes="testng.xml"/> 
+    </testng>
   </target>
 </project>
